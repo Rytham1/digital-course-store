@@ -18,25 +18,45 @@ export default function AuthPage() {
   }
 
   return (
-    <div>
-      <h1>Auth Test (No Email Confirm)</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+      <div className="w-full max-w-sm bg-white rounded-xl shadow-lg p-6">
+        <h1 className="text-2xl font-bold text-center mb-6">Auth Test</h1>
 
-      <input
-        placeholder="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full p-3 border rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
 
-      <button onClick={signUp}>Sign Up</button>
-      <button onClick={signIn}>Sign In</button>
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
 
-      <p>{message}</p>
+        <div className="flex gap-2">
+          <button
+            onClick={signUp}
+            className="w-1/2 bg-gray-500 text-white py-2 rounded-lg hover:bg-blue-600"
+          >
+            Sign Up
+          </button>
+          <button
+            onClick={signIn}
+            className="w-1/2 bg-blue-500 text-white py-2 rounded-lg hover:bg-green-600"
+          >
+            Sign In
+          </button>
+        </div>
+
+        {message && (
+          <p className="mt-4 text-center text-sm text-gray-600">{message}</p>
+        )}
+      </div>
     </div>
   )
 }
